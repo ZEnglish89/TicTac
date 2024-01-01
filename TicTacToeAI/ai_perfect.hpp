@@ -9,7 +9,7 @@
 namespace ai_perfect
 {
 
-#define MAX_SEARCH_STATES 101999
+#define MAX_SEARCH_STATES 1500000
 
 // Call if anything needs to be setup one start (probably not)
 void init()
