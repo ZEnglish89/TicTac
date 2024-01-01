@@ -71,7 +71,7 @@ Vec get_move(const GameState& state, enum PLAYER_ID player_id){
 
     Queue<Vertex<GameState>*> frontier;
     frontier.enqueue(start);
-    while (!frontier.isEmpty()&&current_states<MAX_SEARCH_STATES){
+    while (!frontier.isEmpty()&&(current_states<MAX_SEARCH_STATES||!cap_states)){
         Vertex<GameState>* curr = frontier.dequeue();
         if (!curr->data.done){
             for(int i = 0; i < state.size; i++){
@@ -90,6 +90,9 @@ Vec get_move(const GameState& state, enum PLAYER_ID player_id){
                 }
             }
         }
+    }
+    if(current_states>=MAX_SEARCH_STATES&&cap_states){
+        return ai_random::get_move(state,player_id);
     }
     auto& list = start->neighbors;
     Vec bestmove = list[0]->location->data.lastMove;

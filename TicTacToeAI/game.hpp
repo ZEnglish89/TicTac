@@ -15,6 +15,7 @@
 
 enum AI_TYPE{AI_SIMPLE, AI_RANDOM, AI_PERFECT};
 
+bool cap_states=true;
 bool player_goes_first = true;
 enum AI_TYPE ai_type = AI_SIMPLE;
 unsigned int board_size = 3;
@@ -244,6 +245,12 @@ void screen_options()
     }
 
     std::cout << CLR_GREEN << "[5]" << CLR_END << " Board Size = [" << board_size << ", " << board_size << "]" << std::endl;
+    if(cap_states){
+        std::cout << CLR_GREEN << "[6]" << CLR_END << " Cap PerfectAI States = " CLR_GREEN << "True" << CLR_END << std::endl;
+    }
+    else{
+        std::cout << CLR_GREEN << "[1]" << CLR_END << " Cap PerfectAI States = " CLR_RED << "False" << CLR_END << std::endl;
+    }
     std::cout << CLR_GREEN << "[6]" << CLR_END << " Exit" << std::endl;
 
 
@@ -260,15 +267,9 @@ void screen_options()
         goto option;
     }
 
-    if (option == 1 && player_goes_first == true) 
+    if (option == 1) 
     {
-        player_goes_first = false;
-        screen_options();
-    }
-
-    else if (option == 1 && player_goes_first == false)
-    {
-        player_goes_first = true;
+        player_goes_first = !player_goes_first;
         screen_options();
     }
 
@@ -322,12 +323,17 @@ void screen_options()
 
     }
 
-    else if (option == 6) 
+    else if(option==6){
+        cap_states=!cap_states;
+        screen_options();
+    }
+
+    else if (option == 7) 
     {
         return;
     }
 
-    else if (option <= 0 || option > 6) {
+    else if (option <= 0 || option > 7) {
         screen_options();
     }
 
