@@ -98,7 +98,7 @@ void routine_ai_move(GameState& game)
             move = ai_simple::get_move(game, (enum PLAYER_ID)game.currentTurn);
             break;
         case AI_PERFECT:
-            move = ai_perfect::get_move(game, (enum PLAYER_ID)game.currentTurn);
+            move = ai_perfect::get_move(game, (enum PLAYER_ID)game.currentTurn,cap_states);
             break;
     }
     // assume AI gets valid move

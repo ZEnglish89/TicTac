@@ -61,7 +61,7 @@ int findMinIndex(ArrayList<int> list){
     return min;
 }*/
 
-Vec get_move(const GameState& state, enum PLAYER_ID player_id){
+Vec get_move(const GameState& state, enum PLAYER_ID player_id, bool cap_states){
     
     unsigned int current_states = 1;
     Graph<GameState> stateSpace;
