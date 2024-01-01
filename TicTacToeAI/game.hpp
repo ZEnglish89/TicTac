@@ -249,9 +249,10 @@ void screen_options()
         std::cout << CLR_GREEN << "[6]" << CLR_END << " Cap PerfectAI States = " CLR_GREEN << "True" << CLR_END << std::endl;
     }
     else{
-        std::cout << CLR_GREEN << "[1]" << CLR_END << " Cap PerfectAI States = " CLR_RED << "False" << CLR_END << std::endl;
+        std::cout << CLR_GREEN << "[6]" << CLR_END << " Cap PerfectAI States = " CLR_RED << "False" << CLR_END << std::endl;
+        std::cout<<CLR_RED<<"STRONGLY RECOMMENDED THAT THE CAP IS LEFT ENABLED. Disabling the cap will result in the AI using upwards of 25Gb of RAM on even smaller board sizes."<<CLR_END<<std::endl;
     }
-    std::cout << CLR_GREEN << "[6]" << CLR_END << " Exit" << std::endl;
+    std::cout << CLR_GREEN << "[7]" << CLR_END << " Exit" << std::endl;
 
 
     std::cout << std::endl << "Select Option: ";
